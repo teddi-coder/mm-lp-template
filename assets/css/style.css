@@ -1,0 +1,1009 @@
+/* ============================================================
+   MECHANIC MARKETING — CLIENT LANDING PAGE TEMPLATE
+   style.css
+   ------------------------------------------------------------
+   THEMING: Edit ONLY the :root block below to restyle for a
+   new client. Do not put hex values anywhere else in this file.
+   ============================================================ */
+
+
+/* ============================================================
+   CSS VARIABLES — CLIENT DESIGN SYSTEM
+   EDIT: Change these per client. Everything else references them.
+   ============================================================ */
+:root {
+  /* CLIENT BRAND — edit these per client */
+  --brand-primary: #CC0000;        /* main brand colour — buttons, accents, headings */
+  --brand-secondary: #1A1A2E;      /* secondary colour — dark backgrounds, header */
+  --brand-accent: #F5A623;         /* accent — use sparingly */
+  --brand-bg: #F8F8F8;             /* page background */
+  --brand-text: #1A1A1A;           /* primary body text */
+  --brand-text-light: #FFFFFF;     /* text on dark/coloured backgrounds */
+
+  /* FONTS — edit these per client */
+  --font-heading: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+  --font-body: 'Inter', Arial, sans-serif;
+
+  /* STRUCTURAL — do not change per client */
+  --input-border: #CCCCCC;         /* neutral input border — not a brand colour */
+
+  /* SPACING SCALE */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+}
+
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--brand-text);
+  background-color: var(--brand-bg);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* ============================================================
+   TYPOGRAPHY SCALE
+   ============================================================ */
+
+/* Hero H1 */
+h1 {
+  font-family: var(--font-heading);
+  font-size: 72px;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: var(--brand-text);
+}
+
+/* Section H2 */
+h2 {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+/* H3 */
+h3 {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* H4 */
+h4 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* Body large */
+.body-large {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn-primary {
+  display: inline-block;
+  background: var(--brand-primary);
+  color: var(--brand-text-light);
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 16px 32px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+}
+
+/* Inverted button — used at footer CTA for contrast against primary background */
+.btn-inverted {
+  display: inline-block;
+  background: var(--brand-secondary);
+  color: var(--brand-text-light);
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 16px 32px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-inverted:hover {
+  opacity: 0.88;
+}
+
+
+/* ============================================================
+   LAYOUT HELPERS
+   ============================================================ */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+
+/* ============================================================
+   BLOCK: HEADER
+   ============================================================ */
+
+.site-header {
+  background: var(--brand-secondary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: var(--space-sm) 0;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.site-header__name {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--brand-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.header-logo { max-height: 48px; width: auto; }
+.logo-text { font-family: var(--font-heading); font-size: 22px; font-weight: 700; color: var(--brand-text-light); text-transform: uppercase; }
+
+.site-header__phone {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--brand-text-light);
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.site-header__phone:hover {
+  opacity: 0.85;
+}
+
+
+/* ============================================================
+   BLOCK: MOBILE BOTTOM CTA BAR
+   Hidden by default. JS adds .show-mobile-cta to <body>
+   when the hero scrolls out of view on mobile.
+   ============================================================ */
+
+.mobile-cta-bar {
+  display: none; /* desktop: never shown */
+}
+
+@media (max-width: 768px) {
+  .mobile-cta-bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--brand-primary);
+    z-index: 200;
+    padding: var(--space-sm) var(--space-md);
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.2s ease;
+  }
+
+  .mobile-cta-bar a {
+    display: block;
+    color: var(--brand-text-light);
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  body.show-mobile-cta .mobile-cta-bar {
+    transform: translateY(0);
+  }
+
+  /* Prevent page content hiding behind the bar */
+  body.show-mobile-cta {
+    padding-bottom: 68px;
+  }
+}
+
+
+/* ============================================================
+   BLOCK: HERO — VARIANT A (Call CTA)
+   ============================================================ */
+
+.hero {
+  background: var(--brand-bg);
+  padding: var(--space-3xl) 0;
+}
+
+.hero .container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+.hero__copy {
+  flex: 0 0 60%;
+  max-width: 60%;
+}
+
+.hero__copy h1 {
+  margin-bottom: var(--space-sm);
+}
+
+.hero__copy .hero__subheadline {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: none;
+  color: var(--brand-text);
+  margin-bottom: var(--space-md);
+  font-family: var(--font-body);
+}
+
+.hero__copy p {
+  font-size: 18px;
+  color: var(--brand-text);
+  margin-bottom: var(--space-lg);
+}
+
+.hero__cta-note {
+  display: block;
+  font-size: 14px;
+  color: var(--brand-text);
+  margin-top: var(--space-sm);
+  opacity: 0.65;
+}
+
+.secondary-cta {
+  display: block;
+  font-size: 14px;
+  color: var(--brand-text);
+  margin-top: var(--space-sm);
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.secondary-cta:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+.hero__image {
+  flex: 0 0 40%;
+  max-width: 40%;
+  background: var(--brand-primary);
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ============================================================
+   BLOCK: HERO — VARIANT B (Form CTA)
+   ============================================================ */
+
+.hero-form__right {
+  flex: 0 0 40%;
+  max-width: 40%;
+  background: var(--brand-text-light);
+  padding: var(--space-lg);
+  border-top: 4px solid var(--brand-primary);
+}
+
+.hero-form__right h4 {
+  margin-bottom: var(--space-md);
+  color: var(--brand-text);
+}
+
+.hero-form .form-group {
+  margin-bottom: var(--space-sm);
+}
+
+.hero-form label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--brand-text);
+  margin-bottom: var(--space-xs);
+}
+
+.hero-form input,
+.hero-form textarea {
+  width: 100%;
+  padding: 12px var(--space-sm);
+  border: 1px solid var(--input-border);
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--brand-text);
+  background: var(--brand-bg);
+  border-radius: 0;
+  transition: border-color 0.2s ease;
+}
+
+.hero-form input:focus,
+.hero-form textarea:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+}
+
+.hero-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.hero-form .btn-primary {
+  width: 100%;
+  text-align: center;
+  margin-top: var(--space-xs);
+}
+
+/* Inline field errors */
+.field-error {
+  display: block;
+  font-size: 13px;
+  color: var(--brand-primary);
+  margin-top: 4px;
+}
+
+
+/* ============================================================
+   BLOCK: TRUST BAR
+   ============================================================ */
+
+.trust-bar {
+  background: var(--brand-secondary);
+  padding: var(--space-xl) 0;
+}
+
+.trust-bar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.trust-bar__item {
+  text-align: center;
+  flex: 1 1 160px;
+}
+
+.trust-bar__stat {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--brand-primary);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.trust-bar__label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--brand-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+
+/* ============================================================
+   BLOCK: SERVICES
+   ============================================================ */
+
+.services {
+  background: var(--brand-bg);
+  padding: var(--space-3xl) 0;
+}
+
+.services .section-headline {
+  color: var(--brand-primary);
+  margin-bottom: var(--space-2xl);
+  text-align: center;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.service-card {
+  background: var(--brand-text-light);
+  border-left: 4px solid var(--brand-primary);
+  padding: var(--space-lg);
+}
+
+.service-card h4 {
+  color: var(--brand-text);
+  margin-bottom: var(--space-sm);
+}
+
+.service-card p {
+  color: var(--brand-text);
+  opacity: 0.85;
+}
+
+.services-cta { text-align: center; margin-top: var(--space-lg); font-size: 18px; }
+.services-cta a { color: var(--brand-primary); font-weight: 700; }
+.services-cta a:hover { text-decoration: underline; }
+
+
+/* ============================================================
+   BLOCK: WHY CHOOSE US
+   ============================================================ */
+
+.why-choose {
+  background: var(--brand-primary);
+  padding: var(--space-3xl) 0;
+}
+
+.why-choose h2 {
+  color: var(--brand-text-light);
+  margin-bottom: var(--space-2xl);
+  text-align: center;
+}
+
+.why-choose__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.why-choose__item {
+  color: var(--brand-text-light);
+}
+
+.why-choose__item strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+
+.why-choose__item p {
+  color: var(--brand-text-light);
+  opacity: 0.9;
+}
+
+
+/* ============================================================
+   BLOCK: MID-PAGE CTA STRIP
+   ============================================================ */
+
+.mid-cta {
+  background: var(--brand-secondary);
+  padding: var(--space-xl) 0;
+  text-align: center;
+}
+
+.mid-cta h2 {
+  color: var(--brand-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.mid-cta p {
+  color: var(--brand-text-light);
+  font-size: 18px;
+  margin-bottom: var(--space-lg);
+}
+
+
+/* ============================================================
+   BLOCK: ABOUT
+   ============================================================ */
+
+.about {
+  background: var(--brand-bg);
+  padding: var(--space-3xl) 0;
+}
+
+.about .container {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2xl);
+}
+
+.about__text {
+  flex: 1;
+}
+
+.about__text h3 {
+  color: var(--brand-text);
+  margin-bottom: var(--space-md);
+}
+
+.about__text p {
+  color: var(--brand-text);
+  margin-bottom: var(--space-sm);
+}
+
+.about__text p:last-child {
+  margin-bottom: 0;
+}
+
+.about__image {
+  flex: 0 0 45%;
+  max-width: 45%;
+  overflow: hidden;
+  background: var(--brand-secondary);
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* If no photo: leave the .about__image div empty in the HTML,
+   and it will collapse — text takes full width automatically. */
+.about__image:empty {
+  display: none;
+}
+
+
+/* ============================================================
+   BLOCK: FAQ
+   Pure CSS accordion — no JavaScript needed.
+   ============================================================ */
+
+.faq {
+  background: var(--brand-bg);
+  padding: var(--space-3xl) 0;
+  border-top: 1px solid var(--brand-accent);
+}
+
+.faq h2 {
+  color: var(--brand-text);
+  margin-bottom: var(--space-2xl);
+}
+
+.faq__list {
+  max-width: 800px;
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--brand-accent);
+}
+
+.faq__item summary {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-text);
+  padding: var(--space-md) 0;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  transition: color 0.2s ease;
+}
+
+/* Remove browser default marker — list-style:none handles Firefox/Chrome,
+   ::-webkit-details-marker handles Safari */
+.faq summary { list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+
+/* Remove browser default marker */
+.faq__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq__item summary::marker {
+  display: none;
+}
+
+/* Custom +/- indicator */
+.faq__item summary::after {
+  content: '+';
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--brand-primary);
+  flex-shrink: 0;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.faq__item[open] summary::after {
+  content: '\2212'; /* unicode minus sign */
+  color: var(--brand-primary);
+}
+
+.faq__item summary:hover {
+  color: var(--brand-primary);
+}
+
+.faq__item p {
+  padding: 0 0 var(--space-md);
+  color: var(--brand-text);
+  opacity: 0.85;
+}
+
+
+/* ============================================================
+   BLOCK: SERVICE AREA
+   ============================================================ */
+
+.service-area {
+  background: var(--brand-secondary);
+  padding: var(--space-3xl) 0;
+}
+
+.service-area .container {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-2xl);
+}
+
+.service-area__text {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.service-area__text h3 {
+  color: var(--brand-text-light);
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
+
+.service-area__text p {
+  color: var(--brand-text-light);
+  opacity: 0.9;
+}
+
+.service-area__map {
+  flex: 0 0 50%;
+  max-width: 50%;
+  min-height: 320px;
+  overflow: hidden;
+}
+
+.service-area__map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border: none;
+  display: block;
+}
+
+.map-container { position: relative; }
+.map-fallback { margin-top: var(--space-xs); font-size: 14px; color: var(--brand-text-light); opacity: 0.8; }
+.map-fallback a { color: var(--brand-primary); }
+
+
+/* ============================================================
+   BLOCK: FOOTER CTA
+   ============================================================ */
+
+.footer-cta {
+  background: var(--brand-primary);
+  padding: var(--space-3xl) 0;
+  text-align: center;
+}
+
+.footer-cta h2 {
+  color: var(--brand-text-light);
+  margin-bottom: var(--space-sm);
+}
+
+.footer-cta p {
+  color: var(--brand-text-light);
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: var(--space-lg);
+}
+
+
+/* ============================================================
+   BLOCK: FOOTER
+   ============================================================ */
+
+.site-footer {
+  background: var(--brand-secondary);
+  padding: var(--space-2xl) 0 var(--space-lg);
+}
+
+.site-footer .footer-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.site-footer__brand {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--brand-text-light);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.site-footer__col h4 {
+  color: var(--brand-text-light);
+  font-size: 16px;
+  margin-bottom: var(--space-sm);
+}
+
+.site-footer__col p,
+.site-footer__col a {
+  color: var(--brand-text-light);
+  font-size: 15px;
+  opacity: 0.75;
+  line-height: 1.8;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+.site-footer__col a:hover {
+  opacity: 1;
+}
+
+.site-footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--space-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.site-footer__copyright {
+  font-size: 13px;
+  color: var(--brand-primary);
+}
+
+.powered-by {
+  font-size: 13px;
+}
+
+.powered-by a {
+  color: var(--brand-text-light);
+  opacity: 0.35;
+  transition: opacity 0.2s ease;
+}
+
+.powered-by a:hover {
+  opacity: 0.65;
+}
+
+
+/* ============================================================
+   THANK YOU PAGE
+   ============================================================ */
+
+.thankyou-section {
+  background: var(--brand-bg);
+  padding: var(--space-3xl) 0;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+}
+
+.thankyou-section .container {
+  max-width: 640px;
+  text-align: center;
+}
+
+.thankyou-section h2 {
+  color: var(--brand-primary);
+  margin-bottom: var(--space-md);
+}
+
+.thankyou-section p {
+  font-size: 18px;
+  color: var(--brand-text);
+  margin-bottom: var(--space-lg);
+}
+
+
+/* ============================================================
+   RESPONSIVE — TABLET (max-width: 1024px)
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  h1 { font-size: 56px; }
+  h2 { font-size: 40px; }
+
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why-choose__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE (max-width: 768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  h1 { font-size: 44px; }
+  h2 { font-size: 32px; }
+  h3 { font-size: 26px; }
+
+  .container {
+    padding: 0 var(--space-sm);
+  }
+
+  /* Header */
+  .site-header__name {
+    font-size: 20px;
+  }
+
+  .site-header__phone {
+    font-size: 20px;
+  }
+
+  /* Hero A */
+  .hero .container {
+    flex-direction: column;
+  }
+
+  .hero__copy,
+  .hero__image {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .hero__image {
+    min-height: 260px;
+  }
+
+  /* Hero B */
+  .hero-form__right {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Trust bar — 2-column grid on mobile */
+  .trust-bar .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: var(--space-md);
+  }
+
+  /* Services */
+  .services__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Why choose */
+  .why-choose__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* About */
+  .about .container {
+    flex-direction: column;
+  }
+
+  .about__image {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    min-height: 220px;
+  }
+
+  /* Service area */
+  .service-area .container {
+    flex-direction: column;
+  }
+
+  .service-area__text,
+  .service-area__map {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Footer */
+  .site-footer .footer-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

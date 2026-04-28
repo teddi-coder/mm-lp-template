@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ============================================================
+     BLOCK 1: HEAD / META
+     EDIT: meta title, GA4 measurement ID — match what you used
+     in index.html for this client.
+     ============================================================ -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- EDIT: Keep consistent with index.html -->
+  <title>Thank You | [WORKSHOP NAME]</title>
+
+  <!-- No index — thank-you pages should not appear in search results -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- FONTS: Match index.html — replace if client has custom brand fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- ============================================================
+       GA4 — EDIT: Same measurement ID as index.html
+       ============================================================ -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+
+  <!-- ====================================================
+       GA4 CONVERSION EVENT
+       Replace GA_MEASUREMENT_ID with the client's GA4 Measurement ID
+       (found in GA4 → Admin → Data Streams → Web stream details)
+
+       This fires a 'generate_lead' event on page load, which GA4
+       records as a conversion if you've marked it as one in GA4.
+       ==================================================== -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    // gtag('event', 'generate_lead', { 'send_to': 'GA_MEASUREMENT_ID' });
+    // Uncomment the line above and replace GA_MEASUREMENT_ID before going live
+  </script>
+
+  <!-- ====================================================
+       GOOGLE ADS CONVERSION TAG
+       Replace CONVERSION_ID and CONVERSION_LABEL with values from:
+       Google Ads → Tools & Settings → Measurement → Conversions
+       → [conversion action] → Tag setup → Use Google Tag Manager
+
+       This tag is required for Google Ads to report form submission
+       conversions. Without it, campaigns will show zero conversions
+       even when leads are coming in. Test with Google Tag Assistant
+       before going live.
+       ==================================================== -->
+  <script>
+    // gtag('event', 'conversion', {
+    //   'send_to': 'CONVERSION_ID/CONVERSION_LABEL'
+    // });
+    // Uncomment and fill in values before going live
+  </script>
+</head>
+
+<body>
+
+<!-- ============================================================
+     HEADER — matches index.html
+     EDIT: Workshop name/logo, phone number
+     ============================================================ -->
+<header class="site-header">
+  <div class="container">
+    <!-- EDIT: Match index.html -->
+    <span class="site-header__name">[WORKSHOP NAME]</span>
+
+    <!-- EDIT: Replace phone number in both href and display text -->
+    <a href="tel:+61XXXXXXXXXX" class="site-header__phone">0X XXXX XXXX</a>
+  </div>
+</header>
+
+
+<!-- ============================================================
+     THANK YOU BODY
+     EDIT: Phone number in the call button
+     ============================================================ -->
+<section class="thankyou-section">
+  <div class="container">
+
+    <h2>We'll Be in Touch Shortly</h2>
+
+    <p>Thanks for reaching out to [WORKSHOP NAME]. We&rsquo;ve received your message and will call you back within the hour during business hours (Mon&ndash;Fri 8am&ndash;5:30pm, Sat 8am&ndash;12pm).</p>
+
+    <!-- EDIT: Replace phone number in href and button text -->
+    <a href="tel:+61XXXXXXXXXX" class="btn-primary">Call Us Now</a>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER — matches index.html
+     EDIT: Workshop name, address, phone, ABN, nav links
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-cols">
+
+      <div class="site-footer__col">
+        <span class="site-footer__brand">[WORKSHOP NAME]</span>
+        <p>Your trusted local mechanic in [SUBURB].</p>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Contact</h4>
+        <a href="tel:+61XXXXXXXXXX">0X XXXX XXXX</a>
+        <p>[Street Address], [SUBURB] [STATE] [POSTCODE]</p>
+        <p>ABN: [XX XXX XXX XXX]</p>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Links</h4>
+        <a href="index.html">Home</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+      </div>
+
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="site-footer__copyright">&copy; 2026 [WORKSHOP NAME]. All rights reserved.</p>
+
+      <!-- POWERED BY: Remove this line if client requests white-label -->
+      <p class="powered-by"><a href="https://mechanicmarketing.com.au">Powered by Mechanic Marketing</a></p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Main JavaScript -->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
