@@ -5,6 +5,10 @@ compatibility_date = "2024-01-01"
 [vars]
 CF_PAGES_PROJECT_PREFIX = "mm-lp"
 
+[[kv_namespaces]]
+name = "CLIENT_CONFIGS"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
 # Secrets — set via `wrangler secret put` (never stored here):
 # wrangler secret put ANTHROPIC_API_KEY
 # wrangler secret put GITHUB_TOKEN
