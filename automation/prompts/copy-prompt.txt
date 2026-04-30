@@ -1,0 +1,172 @@
+You are writing Google Ads landing page copy for a mechanic workshop client of Mechanic Marketing — a specialist automotive digital marketing agency in Australia.
+
+The copy must:
+- Match message to the Google Ads campaign keyword theme exactly — if someone searched "logbook service Norwood", those words should appear prominently
+- Be direct and no-nonsense — mechanics and their customers are practical people, not corporate audiences
+- Build trust fast — reviews, years in experience, certifications, and local credibility do heavy lifting
+- Drive one action — call or fill in the form. Every section should funnel toward this
+- Sound like a real local workshop, not a generic web agency template
+- Use Australian spelling and phrasing throughout (e.g. "tyres" not "tires", "authorised" not "authorized")
+- Do NOT use em dashes (—) anywhere in the copy. Replace with a comma, full stop, or rewrite the sentence. Em dashes are a known AI writing tell.
+
+Do NOT use: corporate marketing fluff, passive voice, excessive exclamation marks, generic phrases like "we put customers first" or "quality you can trust" without specifics to back them up.
+
+---
+
+## [BRIEF]
+
+**Business name:** [paste from form]
+**Trading name (if different):** [paste from form]
+**Phone number:** [paste from form]
+**Address:** [paste from form]
+
+**Primary service for this page:** [paste from form]
+**Supporting services:** [paste from form]
+**Target suburb(s):** [paste from form]
+**Service area radius:** [paste from form]
+**Google Ads keyword theme:** [paste from form — e.g. "logbook service Norwood"]
+
+**Google reviews:** [count] reviews, [rating] stars
+**Years in business:** [paste from form]
+**Certifications / awards:** [paste from form]
+**Jobs/cars completed:** [paste from form, or leave blank]
+
+**Key selling points:**
+1. [paste from form]
+2. [paste from form]
+3. [paste from form]
+4. [paste from form — if provided]
+5. [paste from form — if provided]
+
+**Offer / hook:** [paste from form, or "none"]
+**CTA preference:** [Call only / Form only / Both]
+
+---
+
+## OUTPUT REQUIRED
+
+Write all of the following. Label each section clearly.
+
+**1. HERO HEADLINE (H1)**
+One punchy all-caps line. Must include the primary service and target suburb. 8 words max. This will render at large display size — it needs to hit hard.
+Write 2 variants.
+
+**2. HERO SUBHEADLINE**
+One sentence. Expands on the headline — adds the trust angle or the key differentiator. 15–20 words. Sentence case.
+Write 2 variants.
+
+**3. HERO BODY COPY**
+2–3 sentences. Speaks directly to what the customer is looking for, references the suburb/area, and introduces the workshop as the obvious choice. Include the phone number naturally if CTA is call-focused.
+
+**4. HERO CTA TEXT**
+If call: short urgent line above the phone number (e.g. "Call us today — same-day bookings available")
+If form: form headline (e.g. "Get a free quote — we'll call you back within the hour")
+If both: write one of each.
+
+**5. TRUST BAR ITEMS**
+4 short trust items for the horizontal trust bar. Format: [number or icon label] + [short descriptor].
+Examples: "847 Five-Star Reviews", "20+ Years Experience", "RAA Approved Repairer"
+Use the client's actual numbers. Make them specific.
+
+**6. SERVICES SECTION HEADLINE**
+One line. All caps. References the primary service + location.
+Example: "LOGBOOK SERVICING IN NORWOOD & SURROUNDS"
+
+**7. SERVICE DESCRIPTIONS**
+For each service listed in the brief, write:
+- Service name (bold label)
+- 2–3 sentence description that explains what it covers and why this workshop is the right choice for it
+- Keep it practical — what does the customer actually get?
+
+**7b. SERVICE CHECKLIST HEADLINE**
+One line. All caps. Names the service and implies completeness.
+Example: "WHAT'S INCLUDED IN EVERY LOGBOOK SERVICE"
+
+**7c. SERVICE CHECKLIST ITEMS**
+8–12 specific items included in the primary service. Each item is a short noun phrase (3–6 words). These will render as a 2-column checklist grid with tick marks.
+Examples: "Factory-specified oil and filter", "Tyre pressure and tread depth check", "Logbook stamped (warranty maintained)"
+Use the service name to make them specific — not generic across all services.
+
+**7d. BENEFIT CARDS HEADLINE**
+One line. All caps. References the workshop's key advantage or the suburb.
+Example: "WHY NORWOOD DRIVERS CHOOSE US"
+
+**7e. BENEFIT CARDS (4 items)**
+Four short benefit cards. Each has:
+- Bold label (3–5 words — specific claim, not generic)
+- 1–2 sentence description (what specifically, not vague promises)
+These are different from selling points — they should address objections (warranty, surprise costs, availability, etc.)
+
+**7f. HOW IT WORKS HEADLINE**
+One short all-caps line.
+Examples: "BOOKING IS EASY" / "HOW IT WORKS" / "READY IN THREE STEPS"
+
+**7g. HOW IT WORKS STEPS (exactly 3)**
+Three steps describing the booking-to-completion process. Each step has:
+- Step label (short, 2–4 words, all caps)
+- 2–3 sentence description (second person, direct, specific)
+Example:
+Step 1: "CALL OR BOOK ONLINE" / "Call us on [PHONE] or fill in the form below. Tell us your car, the service you need, and a time that suits — we'll confirm the booking within the hour."
+Step 2: "DROP OFF YOUR CAR" / "Bring your car to our [SUBURB] workshop. We'll check it in, keep you updated during the service, and call if we find anything extra."
+Step 3: "PICK UP, GOOD TO GO" / "We'll call when your car is ready. Pick it up freshly serviced, logbook stamped, and ready for the road."
+
+**8. WHY CHOOSE US — SECTION HEADLINE**
+One all-caps line. Punchy. Not generic.
+Example: "WHY NORWOOD DRIVERS KEEP COMING BACK"
+
+**9. WHY CHOOSE US — SELLING POINTS**
+Take the client's key selling points and turn each into:
+- Short bold label (3–5 words)
+- 1–2 sentence expansion
+
+**10. MID-PAGE CTA STRIP**
+One punchy line (10 words max, all caps) + one supporting line (sentence case, 10–15 words) + CTA button text.
+Example:
+"READY TO BOOK YOUR SERVICE?"
+"Call us now or fill in the form — we'll confirm your booking within the hour."
+[BOOK NOW] or [CALL 08 XXXX XXXX]
+
+**11. FAQ SECTION HEADLINE**
+Short. Not "Frequently Asked Questions." Something like "WHAT YOU NEED TO KNOW" or "GOT QUESTIONS? WE'VE GOT ANSWERS."
+
+**12. FAQ ITEMS**
+Write 6 questions and answers relevant to the primary service and client's context. Questions should be things a real customer would actually search or ask before booking. Answers should be 2–4 sentences — direct, specific, not padded.
+
+Suggested angles:
+- How long does [service] take?
+- Will [service] affect my new car warranty?
+- Do I need to book in advance?
+- What's included in a [service]?
+- Do you service [car brand/type if relevant]?
+- What areas do you service?
+
+Format each as:
+**Q: [question]**
+**A:** [answer]
+
+**13. SERVICE AREA PARAGRAPH**
+2–3 sentences. Names the primary suburb, lists 5–8 surrounding suburbs the workshop serves, and ends with a local trust statement.
+
+**14. REVIEWS SECTION HEADLINE**
+One short all-caps line. Not "Customer Reviews."
+Examples: "WHAT OUR CUSTOMERS SAY" / "DON'T TAKE OUR WORD FOR IT"
+
+Note: The actual review text is NOT generated — Guy pastes real Google reviews verbatim into the template. This section only generates the headline.
+
+**15. FOOTER CTA**
+One all-caps headline (8 words max) + one sentence + CTA.
+Example:
+"DON'T PUT OFF YOUR NEXT SERVICE"
+"Book online or call our Norwood workshop today — we'll get you back on the road fast."
+[CALL NOW] or [GET A QUOTE]
+
+**16. META TITLE**
+Format: [Primary Service] [Suburb] | [Workshop Trading Name]
+Under 60 characters. Include primary keyword naturally.
+
+**17. META DESCRIPTION**
+1–2 sentences. Include primary service, suburb, and a trust hook. Under 155 characters.
+
+---
+
+After writing all sections, add a short note flagging anything in the brief that was vague, missing, or where you've made an assumption. Label it "COPY NOTES."
