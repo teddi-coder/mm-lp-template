@@ -515,6 +515,237 @@ p {
 
 
 /* ============================================================
+   BLOCK: SERVICE CHECKLIST
+   ============================================================ */
+
+.service-checklist {
+  background: var(--brand-bg);
+  padding: var(--space-3xl) 0;
+}
+.service-checklist h2 {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+@media (max-width: 768px) {
+  .service-checklist h2 { font-size: 32px; }
+}
+.checklist-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm) var(--space-xl);
+  max-width: 680px;
+  margin: 0 auto;
+}
+@media (max-width: 600px) {
+  .checklist-grid { grid-template-columns: 1fr; }
+}
+.checklist-grid li {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--brand-text);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.4;
+}
+.checklist-grid li::before {
+  content: '✓';
+  color: var(--brand-primary);
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+
+/* ============================================================
+   BLOCK: BENEFIT CARDS
+   ============================================================ */
+
+.benefit-cards {
+  background: var(--brand-secondary);
+  padding: var(--space-3xl) 0;
+}
+.benefit-cards h2 {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-text-light);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+@media (max-width: 768px) {
+  .benefit-cards h2 { font-size: 32px; }
+}
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+@media (max-width: 768px) {
+  .benefits-grid { grid-template-columns: 1fr; }
+}
+.benefit-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-left: 4px solid var(--brand-primary);
+  border-radius: 4px;
+  padding: var(--space-md) var(--space-lg);
+}
+.benefit-card h4 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-text-light);
+  margin-bottom: var(--space-xs);
+}
+.benefit-card p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   BLOCK: HOW IT WORKS
+   ============================================================ */
+
+.how-it-works {
+  background: var(--brand-bg);
+  padding: var(--space-3xl) 0;
+}
+.how-it-works h2 {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-text);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+@media (max-width: 768px) {
+  .how-it-works h2 { font-size: 32px; }
+}
+.how-steps {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+@media (max-width: 768px) {
+  .how-steps { flex-direction: column; align-items: center; }
+  .how-step__connector { transform: rotate(90deg); }
+}
+.how-step {
+  flex: 1;
+  text-align: center;
+}
+.how-step__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--brand-primary);
+  color: var(--brand-text-light);
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 800;
+  border-radius: 50%;
+  margin-bottom: var(--space-sm);
+}
+.how-step h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-text);
+  margin-bottom: var(--space-xs);
+  text-transform: uppercase;
+}
+.how-step p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--brand-text);
+  line-height: 1.6;
+  opacity: 0.8;
+}
+.how-step__connector {
+  font-size: 24px;
+  color: var(--brand-primary);
+  font-weight: 700;
+  padding-top: 12px;
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   BLOCK: REVIEWS
+   ============================================================ */
+
+.reviews {
+  background: var(--brand-bg);
+  padding: var(--space-3xl) 0;
+}
+.reviews h2 {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-text);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+@media (max-width: 768px) {
+  .reviews h2 { font-size: 32px; }
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+@media (max-width: 900px) {
+  .reviews-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+}
+.review-card {
+  background: var(--brand-text-light);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.review-stars {
+  color: var(--brand-primary);
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.review-text {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--brand-text);
+  line-height: 1.6;
+  font-style: italic;
+  flex: 1;
+  margin: 0;
+}
+.review-author {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-text);
+  font-style: normal;
+}
+
+
+/* ============================================================
    BLOCK: WHY CHOOSE US
    ============================================================ */
 
