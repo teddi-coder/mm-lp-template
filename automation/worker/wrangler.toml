@@ -6,7 +6,7 @@ compatibility_date = "2024-01-01"
 CF_PAGES_PROJECT_PREFIX = "mm-lp"
 
 [[kv_namespaces]]
-name = "CLIENT_CONFIGS"
+binding = "CLIENT_CONFIGS"
 id = "4254ed917fc245368ae5e57ea279aaf1"
 
 # Secrets — set via `wrangler secret put` (never stored here):
