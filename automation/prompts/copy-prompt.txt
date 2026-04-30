@@ -7,6 +7,7 @@ The copy must:
 - Drive one action — call or fill in the form. Every section should funnel toward this
 - Sound like a real local workshop, not a generic web agency template
 - Use Australian spelling and phrasing throughout (e.g. "tyres" not "tires", "authorised" not "authorized")
+- Do NOT use em dashes (—) anywhere in the copy. Replace with a comma, full stop, or rewrite the sentence. Em dashes are a known AI writing tell.
 
 Do NOT use: corporate marketing fluff, passive voice, excessive exclamation marks, generic phrases like "we put customers first" or "quality you can trust" without specifics to back them up.
 
@@ -77,6 +78,38 @@ For each service listed in the brief, write:
 - 2–3 sentence description that explains what it covers and why this workshop is the right choice for it
 - Keep it practical — what does the customer actually get?
 
+**7b. SERVICE CHECKLIST HEADLINE**
+One line. All caps. Names the service and implies completeness.
+Example: "WHAT'S INCLUDED IN EVERY LOGBOOK SERVICE"
+
+**7c. SERVICE CHECKLIST ITEMS**
+8–12 specific items included in the primary service. Each item is a short noun phrase (3–6 words). These will render as a 2-column checklist grid with tick marks.
+Examples: "Factory-specified oil and filter", "Tyre pressure and tread depth check", "Logbook stamped (warranty maintained)"
+Use the service name to make them specific — not generic across all services.
+
+**7d. BENEFIT CARDS HEADLINE**
+One line. All caps. References the workshop's key advantage or the suburb.
+Example: "WHY NORWOOD DRIVERS CHOOSE US"
+
+**7e. BENEFIT CARDS (4 items)**
+Four short benefit cards. Each has:
+- Bold label (3–5 words — specific claim, not generic)
+- 1–2 sentence description (what specifically, not vague promises)
+These are different from selling points — they should address objections (warranty, surprise costs, availability, etc.)
+
+**7f. HOW IT WORKS HEADLINE**
+One short all-caps line.
+Examples: "BOOKING IS EASY" / "HOW IT WORKS" / "READY IN THREE STEPS"
+
+**7g. HOW IT WORKS STEPS (exactly 3)**
+Three steps describing the booking-to-completion process. Each step has:
+- Step label (short, 2–4 words, all caps)
+- 2–3 sentence description (second person, direct, specific)
+Example:
+Step 1: "CALL OR BOOK ONLINE" / "Call us on [PHONE] or fill in the form below. Tell us your car, the service you need, and a time that suits — we'll confirm the booking within the hour."
+Step 2: "DROP OFF YOUR CAR" / "Bring your car to our [SUBURB] workshop. We'll check it in, keep you updated during the service, and call if we find anything extra."
+Step 3: "PICK UP, GOOD TO GO" / "We'll call when your car is ready. Pick it up freshly serviced, logbook stamped, and ready for the road."
+
 **8. WHY CHOOSE US — SECTION HEADLINE**
 One all-caps line. Punchy. Not generic.
 Example: "WHY NORWOOD DRIVERS KEEP COMING BACK"
@@ -114,18 +147,24 @@ Format each as:
 **13. SERVICE AREA PARAGRAPH**
 2–3 sentences. Names the primary suburb, lists 5–8 surrounding suburbs the workshop serves, and ends with a local trust statement.
 
-**14. FOOTER CTA**
+**14. REVIEWS SECTION HEADLINE**
+One short all-caps line. Not "Customer Reviews."
+Examples: "WHAT OUR CUSTOMERS SAY" / "DON'T TAKE OUR WORD FOR IT"
+
+Note: The actual review text is NOT generated — Guy pastes real Google reviews verbatim into the template. This section only generates the headline.
+
+**15. FOOTER CTA**
 One all-caps headline (8 words max) + one sentence + CTA.
 Example:
 "DON'T PUT OFF YOUR NEXT SERVICE"
 "Book online or call our Norwood workshop today — we'll get you back on the road fast."
 [CALL NOW] or [GET A QUOTE]
 
-**15. META TITLE**
+**16. META TITLE**
 Format: [Primary Service] [Suburb] | [Workshop Trading Name]
 Under 60 characters. Include primary keyword naturally.
 
-**16. META DESCRIPTION**
+**17. META DESCRIPTION**
 1–2 sentences. Include primary service, suburb, and a trust hook. Under 155 characters.
 
 ---
