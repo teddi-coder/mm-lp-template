@@ -3,35 +3,23 @@
 
 <!-- ============================================================
      BLOCK 1: HEAD / META
-     EDIT: meta title, meta description, GA4 measurement ID,
-     client domain for canonical URL, Google Fonts if client
-     has custom brand fonts.
      ============================================================ -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- EDIT: Page title format: [PRIMARY SERVICE] [SUBURB] | [WORKSHOP NAME] -->
-  <title>[PRIMARY SERVICE] [SUBURB] | [WORKSHOP NAME]</title>
+  <title>Log Book Servicing &amp; Brakes Penrith | Redline Auto Service</title>
 
-  <!-- EDIT: Write a 150–160 character description targeting the client's primary keyword -->
-  <meta name="description" content="[Meta description — 150–160 characters. E.g.: Expert car service and mechanical repairs in [SUBURB]. [WORKSHOP NAME] — trusted by locals for [X]+ years. Book online or call today.]">
+  <meta name="description" content="Expert log book servicing, brakes and tyres in Penrith, NSW. Redline Auto Service — trusted by Penrith locals. Honest repairs, transparent pricing, same-day bookings. Call (02) 9000 0000.">
 
-  <!-- EDIT: Replace with the full URL of this page (no trailing slash) -->
-  <link rel="canonical" href="https://[clientdomain].com.au">
+  <link rel="canonical" href="https://mm-lp-demo.pages.dev">
 
-  <!-- Open Graph — EDIT title, description, and image URL -->
-  <meta property="og:title" content="[PRIMARY SERVICE] [SUBURB] | [WORKSHOP NAME]">
-  <meta property="og:description" content="[Short OG description — same intent as meta description, ~120 chars]">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Log Book Servicing &amp; Brakes Penrith | Redline Auto Service">
+  <meta property="og:description" content="Honest repairs, transparent pricing, same-day bookings. Penrith's trusted auto mechanics — call (02) 9000 0000.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://[clientdomain].com.au">
-  <meta property="og:image" content="https://[clientdomain].com.au/assets/images/[clientslug]/hero.jpg">
+  <meta property="og:url" content="https://mm-lp-demo.pages.dev">
 
-  <!-- ============================================================
-       FONTS: Replace these with client's brand fonts if they have
-       custom fonts. If client has no brand fonts, Barlow Condensed
-       + Inter work well for automotive.
-       ============================================================ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -39,83 +27,59 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- ============================================================
-       GA4 — EDIT: Replace GA_MEASUREMENT_ID with the client's
-       actual Google Analytics 4 measurement ID (format: G-XXXXXXXXXX)
-       ============================================================ -->
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID');
-  </script>
+  <!-- GA4 — DEMO: not wired to a real property -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
 </head>
 
 <body>
 
 <!-- ============================================================
      BLOCK 2: HEADER
-     EDIT: Logo image path, workshop name (fallback text), phone number
      ============================================================ -->
 <header class="site-header">
   <div class="container">
-    <!-- EDIT: Replace [clientslug] with the client's folder name (e.g. "smiths-auto").
-         The <img> loads logo.png. If missing, the onerror handler hides the image
-         and shows the text fallback automatically. -->
     <div class="header-logo-wrap">
-      <img src="assets/images/[clientslug]/logo.png"
-           alt="[WORKSHOP NAME]"
+      <!-- No logo image for demo — text fallback shown automatically -->
+      <img src="assets/images/redline-auto/logo.png"
+           alt="Redline Auto Service"
            class="header-logo"
            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-      <span class="logo-text" style="display:none;">[WORKSHOP NAME]</span>
+      <span class="logo-text" style="display:none;">Redline Auto Service</span>
     </div>
 
-    <!-- EDIT: Replace phone number in both the href and the display text -->
-    <a href="tel:+61XXXXXXXXXX" class="site-header__phone">0X XXXX XXXX</a>
+    <a href="tel:+61290000000" class="site-header__phone">(02) 9000 0000</a>
   </div>
 </header>
 
-<!-- Mobile bottom CTA bar — shown by JS when hero exits viewport -->
+<!-- Mobile bottom CTA bar -->
 <div class="mobile-cta-bar">
-  <!-- EDIT: Replace phone number in href and display text -->
-  <a href="tel:+61XXXXXXXXXX">Call Now &mdash; 0X XXXX XXXX</a>
+  <a href="#booking">Book a Service &mdash; (02) 9000 0000</a>
 </div>
 
 
-<!-- UX NOTE: Trust Bar sits between Header and Hero intentionally.
-     For paid search traffic, social proof must be visible before the first scroll.
-     Claim → Proof → Detail is the proven sequence for local service landing pages. -->
-
 <!-- ============================================================
      BLOCK 3: TRUST BAR
-     EDIT: review count, star rating, years in business, certifications
      ============================================================ -->
 <section class="trust-bar">
   <div class="container">
 
     <div class="trust-bar__item">
-      <!-- EDIT: Replace with actual review count -->
-      <span class="trust-bar__stat">847</span>
+      <span class="trust-bar__stat">300+</span>
       <span class="trust-bar__label">Five-Star Reviews</span>
     </div>
 
     <div class="trust-bar__item">
-      <!-- EDIT: Replace with actual Google rating -->
       <span class="trust-bar__stat">4.9&#9733;</span>
       <span class="trust-bar__label">Google Rating</span>
     </div>
 
     <div class="trust-bar__item">
-      <!-- EDIT: Replace with actual years in business -->
-      <span class="trust-bar__stat">20+</span>
+      <span class="trust-bar__stat">15+</span>
       <span class="trust-bar__label">Years Experience</span>
     </div>
 
     <div class="trust-bar__item">
-      <!-- EDIT: Replace with relevant certification (RAA, VACC, MTA, etc.) -->
-      <span class="trust-bar__stat">RAA</span>
+      <span class="trust-bar__stat">MTA</span>
       <span class="trust-bar__label">Approved Repairer</span>
     </div>
 
@@ -124,124 +88,41 @@
 
 
 <!-- ============================================================
-     BLOCK 4: HERO — VARIANT A (Call CTA)
-     EDIT: H1 headline, subheadline, body copy, phone number,
-     hero image path (assets/images/[clientslug]/hero.jpg)
-     DEFAULT: This variant is shown. Swap to Variant B by
-     commenting this section out and uncommenting Block 5.
+     BLOCK 4: HERO — VARIANT A (Book CTA)
      ============================================================ -->
 <section id="hero" class="hero">
   <div class="container">
 
     <div class="hero__copy">
-      <!-- H1: Type in sentence case — CSS makes it uppercase. Typing in ALL CAPS breaks screen readers. -->
-      <!-- EDIT: Short punchy headline. -->
-      <h1>[Primary service] in [Suburb]</h1>
+      <h1>Penrith's Trusted Auto Mechanics</h1>
 
-      <!-- EDIT: Subheadline — one sentence, expands on the H1 -->
-      <p class="hero__subheadline">[One-sentence subheadline expanding on the main offer]</p>
+      <p class="hero__subheadline">Honest repairs, transparent pricing, same-day bookings.</p>
 
-      <!-- EDIT: 2–3 sentences of supporting body copy -->
-      <p>[Supporting body copy — 2–3 sentences. Mention the suburb, the key service, and why they should call now rather than later.]</p>
+      <p>Redline Auto Service has been keeping Penrith vehicles on the road for over 15 years. We specialise in log book servicing and brake and tyre work — all makes and models, no dealership prices. Book online or call us today.</p>
 
-      <!-- EDIT: Replace phone number in href and button text -->
-      <a href="tel:+61XXXXXXXXXX" class="btn-primary" aria-label="Call [WORKSHOP NAME]">Call 0X XXXX XXXX</a>
-      <a href="#faq" class="secondary-cta">Not ready to call? Read our FAQs &rarr;</a>
+      <a href="#booking" class="btn-primary" aria-label="Book a service with Redline Auto Service">Book a Service</a>
+      <a href="#faq" class="secondary-cta">Not ready to book? Read our FAQs &rarr;</a>
     </div>
 
     <div class="hero__image">
-      <!-- EDIT: Replace [clientslug] with the client's folder name (e.g. "smiths-auto").
-           Recommended image: 1200x800px JPG, under 200KB.
-           If no image is provided yet, leave this empty — the
-           brand primary colour shows as a fallback background. -->
-      <img
-        src="assets/images/[clientslug]/hero.jpg"
-        alt="[WORKSHOP NAME] — [PRIMARY SERVICE] in [SUBURB]"
-        width="600"
-        height="480"
-        loading="eager"
-      >
+      <!-- No hero image for demo — brand colour fallback applied via CSS -->
     </div>
 
   </div>
 </section>
-
-
-<!-- ============================================================
-     BLOCK 5: HERO — VARIANT B (Form CTA) — COMMENTED OUT
-     EDIT: Uncomment this block and comment out Block 4 to use
-     the form variant instead of the call variant.
-     EDIT: H1 headline, subheadline, body copy, Tally form URL.
-     ============================================================
-
-<section id="hero" class="hero hero-b">
-  <div class="container">
-
-    <div class="hero__copy">
-      <!-- H1: Type in sentence case — CSS makes it uppercase. Typing in ALL CAPS breaks screen readers. -->
-      <h1>[Primary service] in [Suburb]</h1>
-      <p class="hero__subheadline">[One-sentence subheadline expanding on the main offer]</p>
-      <p>[Supporting body copy — 2–3 sentences. Mention the suburb, key service, and urgency.]</p>
-    </div>
-
-    <div class="hero-form__right hero-form">
-
-      <h4>Get a Free Quote</h4>
-
-      <!-- TALLY: Replace action="#" with your Tally form URL, or use Tally's embed script -->
-      <form
-        id="contact"
-        action="#"
-        method="POST"
-        class="hero-form"
-      >
-
-        <div class="form-group">
-          <label for="name">Your name</label>
-          <input id="name" name="name" type="text" placeholder="Jane Smith" required>
-          <span class="field-error" aria-live="polite"></span>
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Your phone number</label>
-          <input id="phone" name="phone" type="tel" placeholder="04XX XXX XXX" required>
-          <span class="field-error" aria-live="polite"></span>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message <span class="optional">(optional)</span></label>
-          <textarea id="message" name="message" rows="3" placeholder="Any details about your vehicle or service needed..."></textarea>
-        </div>
-
-        <button type="submit" class="btn-primary">Get a Free Quote &rarr;</button>
-
-      </form>
-
-    </div>
-
-  </div>
-</section>
-
-     END BLOCK 5
-     ============================================================ -->
 
 
 <!-- ============================================================
      BLOCK 6: SERVICES
-     EDIT: Section headline, service names and descriptions.
-     Minimum 3 cards, maximum 6. Duplicate or remove .service-card
-     divs as needed.
      ============================================================ -->
 <section class="services">
   <div class="container">
 
-    <!-- EDIT: Services section headline -->
     <h2 class="section-headline">Our Services</h2>
 
     <div class="services__grid">
 
       <div class="service-card">
-        <!-- EDIT: Service name and description -->
         <h4>Log Book Servicing</h4>
         <p>Manufacturer-scheduled log book services using approved parts and fluids, so your warranty stays intact. We stamp your log book on completion.</p>
       </div>
@@ -273,7 +154,7 @@
 
     </div>
 
-    <p class="services-cta">Ready to book? <a href="tel:+61XXXXXXXXXX">Call us on [PHONE NUMBER] &rarr;</a></p>
+    <p class="services-cta">Ready to book? <a href="tel:+61290000000">Call us on (02) 9000 0000 &rarr;</a></p>
 
   </div>
 </section>
@@ -281,13 +162,10 @@
 
 <!-- ============================================================
      BLOCK: SERVICE CHECKLIST
-     EDIT: section headline, checklist items (8–12 items)
-     Add or remove <li> items as needed — aim for 8 minimum.
-     Items display in a 2-column grid with checkmark icons.
      ============================================================ -->
 <section class="service-checklist" aria-labelledby="checklist-heading">
   <div class="container">
-    <h2 id="checklist-heading">[CHECKLIST_HEADLINE]</h2>
+    <h2 id="checklist-heading">What's Included in Every Service</h2>
     <ul class="checklist-grid">
       <li>Factory-specified oil and filter</li>
       <li>Tyre pressure and tread depth check</li>
@@ -300,20 +178,16 @@
       <li>Logbook stamped (new car warranty maintained)</li>
       <li>Road test and safety report</li>
     </ul>
-    <!-- CHECKLIST_HEADLINE placeholder: e.g. "WHAT'S INCLUDED IN EVERY SERVICE" -->
   </div>
 </section>
 
 
 <!-- ============================================================
      BLOCK: BENEFIT CARDS
-     EDIT: section headline, card labels and descriptions (4–6 cards)
-     Each card has a short bold label and 1–2 sentence description.
-     Use specific, provable claims — not generic marketing language.
      ============================================================ -->
 <section class="benefit-cards" aria-labelledby="benefits-heading">
   <div class="container">
-    <h2 id="benefits-heading">[BENEFITS_HEADLINE]</h2>
+    <h2 id="benefits-heading">Why Penrith Drivers Choose Us</h2>
     <div class="benefits-grid">
       <div class="benefit-card">
         <h4>Same-Day Bookings</h4>
@@ -331,66 +205,51 @@
         <h4>Loan Car Available</h4>
         <p>Need to get to work while your car is in? Ask about our free loan car when you book.</p>
       </div>
-      <!-- Add or remove cards as needed (minimum 4, maximum 6) -->
     </div>
-    <!-- BENEFITS_HEADLINE placeholder: e.g. "WHY [SUBURB] DRIVERS CHOOSE US" -->
   </div>
 </section>
 
 
 <!-- ============================================================
      BLOCK: HOW IT WORKS
-     EDIT: section headline, 3 step labels and descriptions
-     Keep to exactly 3 steps — this block is a fixed 3-column layout.
-     Steps should describe the booking-to-completion process simply.
      ============================================================ -->
 <section class="how-it-works" aria-labelledby="how-heading">
   <div class="container">
-    <h2 id="how-heading">[HOW_IT_WORKS_HEADLINE]</h2>
+    <h2 id="how-heading">Booking Is Easy</h2>
     <div class="how-steps">
       <div class="how-step">
         <span class="how-step__number">1</span>
-        <h3>[STEP_1_LABEL]</h3>
-        <p>[STEP_1_DESCRIPTION]</p>
+        <h3>Book Online or Call</h3>
+        <p>Use the form below or call us on (02) 9000 0000. Tell us your car and what it needs — we'll confirm a time that suits.</p>
       </div>
       <div class="how-step__connector" aria-hidden="true">→</div>
       <div class="how-step">
         <span class="how-step__number">2</span>
-        <h3>[STEP_2_LABEL]</h3>
-        <p>[STEP_2_DESCRIPTION]</p>
+        <h3>Drop Off Your Car</h3>
+        <p>Bring your car to our Penrith workshop on Great Western Hwy. We'll do a quick walk-around and keep you updated if we find anything extra.</p>
       </div>
       <div class="how-step__connector" aria-hidden="true">→</div>
       <div class="how-step">
         <span class="how-step__number">3</span>
-        <h3>[STEP_3_LABEL]</h3>
-        <p>[STEP_3_DESCRIPTION]</p>
+        <h3>Pick Up, Good to Go</h3>
+        <p>We'll call when it's done. Pick up your car freshly serviced, logbook stamped, and ready for the road.</p>
       </div>
     </div>
-    <!-- HOW_IT_WORKS_HEADLINE placeholder: e.g. "BOOKING IS EASY" or "HOW IT WORKS" -->
-    <!-- Step labels/descriptions placeholder — example:
-         Step 1: "Call or Book Online" / "Call us on [PHONE] or use the form below. Tell us your car and what it needs — we'll confirm a time that suits."
-         Step 2: "Drop Off Your Car" / "Bring your car to our [SUBURB] workshop. We'll do a quick walk-around and keep you updated if we find anything extra."
-         Step 3: "Pick Up, Good to Go" / "We'll call when it's done. Pick up your car freshly serviced, logbook stamped, and ready for the road."
-    -->
   </div>
 </section>
 
 
 <!-- ============================================================
      BLOCK 7: WHY CHOOSE US
-     EDIT: Section headline, selling points (3–5).
-     Each item needs a bold label and a short descriptor.
      ============================================================ -->
 <section class="why-choose">
   <div class="container">
 
-    <!-- EDIT: Why choose section headline -->
-    <h2>Why [SUBURB] drivers choose us</h2>
+    <h2>Why Penrith drivers choose us</h2>
 
     <div class="why-choose__grid">
 
       <div class="why-choose__item">
-        <!-- EDIT: Selling point label and description -->
         <strong>Upfront Pricing</strong>
         <p>We quote before we start. No hidden charges, no surprises on your invoice. You approve the cost before any work begins.</p>
       </div>
@@ -412,7 +271,7 @@
 
       <div class="why-choose__item">
         <strong>Locally Owned</strong>
-        <p>We live and work in [SUBURB]. Our reputation is built on looking after our local community — not on hitting sales targets.</p>
+        <p>We live and work in Penrith. Our reputation is built on looking after our local community — not on hitting sales targets.</p>
       </div>
 
     </div>
@@ -421,27 +280,38 @@
 </section>
 
 
-<!-- id="contact" used as scroll target from Hero A secondary CTA.
-     Only needed if Hero B (form variant) is not active. -->
-
 <!-- ============================================================
-     BLOCK 8: MID-PAGE CTA STRIP
-     EDIT: Headline, supporting line, phone number or form link
+     BLOCK 8: BOOKING FORM (DEMO STUB)
+     NOTE: This form is wired for demo only — no real API calls.
      ============================================================ -->
-<section id="contact" class="mid-cta">
+<section id="booking" class="mid-cta">
   <div class="container">
 
-    <!-- EDIT: Urgency-focused headline -->
-    <h2>Ready to Book?</h2>
+    <h2>Book a Service</h2>
+    <p>Fill in your details and we'll be in touch to confirm your booking.</p>
 
-    <!-- EDIT: Supporting sentence -->
-    <p>Call us now for same-day and next-day bookings — or scroll down to send us a message.</p>
+    <form id="booking-form" class="hero-form" style="max-width:480px; margin:var(--space-lg) auto 0;" novalidate>
+      <div class="form-group">
+        <label for="booking-name">Your name</label>
+        <input id="booking-name" name="name" type="text" placeholder="Jane Smith" required>
+      </div>
+      <div class="form-group">
+        <label for="booking-phone">Your phone number</label>
+        <input id="booking-phone" name="phone" type="tel" placeholder="04XX XXX XXX" required>
+      </div>
+      <div class="form-group">
+        <label for="booking-message">What does your car need? <span class="optional">(optional)</span></label>
+        <textarea id="booking-message" name="message" rows="3" placeholder="e.g. Log book service, brake check..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Request Booking &rarr;</button>
+    </form>
 
-    <!-- OPTION A: Click-to-call -->
-    <a href="tel:+61XXXXXXXXXX" class="btn btn-primary">Call us now</a>
-    <!-- OPTION B: Scroll to form (use when Hero B is active)
-    <a href="#contact" class="btn btn-primary">Get a free quote</a>
-    -->
+    <!-- Demo success message — shown on submit, hidden by default -->
+    <div id="booking-success" style="display:none; margin-top:var(--space-lg); text-align:center; padding:var(--space-lg); background:#fff; border-radius:8px;">
+      <h3 style="color:var(--brand-primary);">Thanks — we'll be in touch shortly!</h3>
+      <p>Our team will call you back within the hour during business hours (Mon–Fri 8am–5:30pm, Sat 8am–12pm).</p>
+      <p style="margin-top:var(--space-sm); font-size:0.85em; color:#888;">Demo note: This form is not wired to a real booking system.</p>
+    </div>
 
   </div>
 </section>
@@ -449,38 +319,22 @@
 
 <!-- ============================================================
      BLOCK 9: ABOUT
-     EDIT: Workshop name, suburb, about paragraphs,
-     optional team photo path.
-     If no photo: leave the .about__image div empty — it will
-     collapse and the text takes full width automatically.
      ============================================================ -->
 <section class="about">
   <div class="container">
 
     <div class="about__text">
-      <!-- EDIT: About headline — personalise to the workshop and suburb -->
-      <h3>About [WORKSHOP NAME]</h3>
+      <h3>About Redline Auto Service</h3>
 
-      <!-- EDIT: 2–3 paragraphs about the workshop. Keep it specific and local. -->
-      <p>[Opening paragraph — when the workshop was founded, who runs it, how long they&rsquo;ve been serving the local area.]</p>
+      <p>Redline Auto Service has been serving the Penrith community since 2010. Founded by head mechanic Dave Caruso, the workshop has grown from a two-bay operation to a full-service mechanical centre trusted by hundreds of Penrith families and tradespeople.</p>
 
-      <p>[Second paragraph — what the workshop specialises in, the types of vehicles they work on, any key accreditations or memberships.]</p>
+      <p>We specialise in log book servicing and brake and tyre work across all makes and models — Australian, Japanese, European, and Korean. As an MTA-approved repairer, every service meets manufacturer standards and your new car warranty stays protected.</p>
 
-      <p>[Optional third paragraph — something personal: the owner&rsquo;s background, a community connection, or a guarantee statement that sets them apart.]</p>
+      <p>We believe in straight answers and fair pricing. Every customer gets a written quote before we start, and we call you if we find anything extra. That's been our approach since day one, and it's why so many of our customers have been coming back for years.</p>
     </div>
 
     <div class="about__image">
-      <!-- EDIT: Replace [clientslug] with the client's folder name.
-           Recommended image: team photo or workshop exterior, 900x600px JPG.
-           If no photo is available, delete the <img> tag and leave this
-           div empty — it will disappear automatically. -->
-      <img
-        src="assets/images/[clientslug]/team.jpg"
-        alt="The team at [WORKSHOP NAME] in [SUBURB]"
-        width="540"
-        height="360"
-        loading="lazy"
-      >
+      <!-- No team photo for demo — div collapses automatically per CSS -->
     </div>
 
   </div>
@@ -489,28 +343,22 @@
 
 <!-- ============================================================
      BLOCK 10: FAQ
-     EDIT: Section headline, 5–7 questions and answers.
-     Pure CSS accordion — no JavaScript required.
-     Duplicate or remove <details> items as needed.
      ============================================================ -->
 <section id="faq" class="faq">
   <div class="container">
 
-    <!-- EDIT: FAQ section headline -->
     <h2>Frequently asked questions</h2>
 
     <div class="faq__list">
 
-      <!-- First FAQ open by default — signals interactivity and surfaces key objection-handling answer -->
       <details class="faq__item" open>
-        <!-- EDIT: Question in <summary>, answer in <p> -->
         <summary>How do I book a service?</summary>
-        <p>You can call us directly on <a href="tel:+61XXXXXXXXXX">0X XXXX XXXX</a>, or use the contact form on this page. We&rsquo;ll confirm your booking and let you know estimated timing when you get in touch.</p>
+        <p>Use the booking form on this page or call us directly on <a href="tel:+61290000000">(02) 9000 0000</a>. We&rsquo;ll confirm your booking and let you know estimated timing when you get in touch.</p>
       </details>
 
       <details class="faq__item">
         <summary>Do you offer log book servicing that won&rsquo;t void my warranty?</summary>
-        <p>Yes. We are a licensed repairer and use manufacturer-approved parts and fluids. Under Australian Consumer Law, you are not required to use a dealership for log book services to maintain your new car warranty.</p>
+        <p>Yes. We are a licensed MTA-approved repairer and use manufacturer-approved parts and fluids. Under Australian Consumer Law, you are not required to use a dealership for log book services to maintain your new car warranty.</p>
       </details>
 
       <details class="faq__item">
@@ -546,29 +394,24 @@
 
 <!-- ============================================================
      BLOCK 11: SERVICE AREA
-     EDIT: Primary suburb, surrounding suburbs, Google Maps
-     embed URL (replace the src on the <iframe>).
      ============================================================ -->
 <section class="service-area">
   <div class="container">
 
     <div class="service-area__text">
-      <!-- EDIT: Replace [PRIMARY SUBURB] with the suburb name — CSS makes this uppercase -->
-      <h3>Servicing [PRIMARY SUBURB] &amp; surrounds</h3>
+      <h3>Servicing Penrith &amp; surrounds</h3>
 
-      <!-- EDIT: List the suburbs the workshop covers -->
-      <p>We service customers from [PRIMARY SUBURB] and the surrounding areas including [SUBURB 2], [SUBURB 3], [SUBURB 4], [SUBURB 5], [SUBURB 6], and [SUBURB 7].</p>
+      <p>We service customers from Penrith and the surrounding areas including Kingswood, St Marys, Cambridge Park, Werrington, Emu Plains, Glenmore Park, and South Penrith.</p>
 
-      <p>Not sure if we cover your area? Give us a call on <a href="tel:+61XXXXXXXXXX" style="color: var(--brand-text-light); text-decoration: underline;">0X XXXX XXXX</a> and we&rsquo;ll let you know.</p>
+      <p>Not sure if we cover your area? Give us a call on <a href="tel:+61290000000" style="color: var(--brand-text-light); text-decoration: underline;">(02) 9000 0000</a> and we&rsquo;ll let you know.</p>
     </div>
 
     <div class="service-area__map">
       <div class="map-container">
-        <!-- GOOGLE MAPS: Replace the src URL below.
-             Get your embed URL from: Google Maps → Share → Embed a map → Copy HTML → extract the src value -->
+        <!-- Map embed: Penrith, NSW — fictional address used for demo -->
         <iframe
-          src="https://www.google.com/maps/embed?pb=REPLACE_THIS_WITH_CLIENT_EMBED_URL"
-          title="[WORKSHOP NAME] location map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.3!2d150.6941!3d-33.7514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b129838f39a743b%3A0x3017d681632a850!2sPenrith%20NSW%202750!5e0!3m2!1sen!2sau!4v1"
+          title="Redline Auto Service location map"
           width="100%"
           height="400"
           style="border:0;"
@@ -577,8 +420,8 @@
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
         <p class="map-fallback">
-          Find us at [WORKSHOP ADDRESS] —
-          <a href="https://maps.google.com/?q=[WORKSHOP+ADDRESS]" target="_blank" rel="noopener noreferrer">Open in Google Maps &rarr;</a>
+          Find us at 123 Great Western Hwy, Penrith NSW 2750 —
+          <a href="https://maps.google.com/?q=123+Great+Western+Hwy+Penrith+NSW+2750" target="_blank" rel="noopener noreferrer">Open in Google Maps &rarr;</a>
         </p>
       </div>
     </div>
@@ -589,52 +432,42 @@
 
 <!-- ============================================================
      BLOCK: REVIEWS
-     EDIT: reviewer names, star ratings, review text (3 reviews)
-     Keep to exactly 3 review cards — this block is a fixed 3-column layout.
-     Use real Google reviews — copy them verbatim, do not paraphrase.
      ============================================================ -->
 <section class="reviews" aria-labelledby="reviews-heading">
   <div class="container">
-    <h2 id="reviews-heading">[REVIEWS_HEADLINE]</h2>
+    <h2 id="reviews-heading">What Our Customers Say</h2>
     <div class="reviews-grid">
       <div class="review-card">
         <div class="review-stars" aria-label="5 stars">★★★★★</div>
-        <blockquote class="review-text">"[REVIEW_TEXT_1]"</blockquote>
-        <cite class="review-author">[REVIEWER_NAME_1]</cite>
+        <blockquote class="review-text">"Absolutely the best mechanic in Penrith. Booked online Monday morning, car was done by lunch. Transparent pricing — no hidden costs. Will never go anywhere else."</blockquote>
+        <cite class="review-author">Sarah T.</cite>
       </div>
       <div class="review-card">
         <div class="review-stars" aria-label="5 stars">★★★★★</div>
-        <blockquote class="review-text">"[REVIEW_TEXT_2]"</blockquote>
-        <cite class="review-author">[REVIEWER_NAME_2]</cite>
+        <blockquote class="review-text">"Brought my Hilux in for a full service and brake check. Dave's team were honest about what needed doing, quoted me upfront, and had it done same day. Highly recommend."</blockquote>
+        <cite class="review-author">Marcus P.</cite>
       </div>
       <div class="review-card">
         <div class="review-stars" aria-label="5 stars">★★★★★</div>
-        <blockquote class="review-text">"[REVIEW_TEXT_3]"</blockquote>
-        <cite class="review-author">[REVIEWER_NAME_3]</cite>
+        <blockquote class="review-text">"Finally found a mechanic I actually trust. Log book service on my Mazda CX-5, warranty maintained, logbook stamped. Friendly staff and fair prices — 5 stars."</blockquote>
+        <cite class="review-author">Lisa K.</cite>
       </div>
     </div>
-    <!-- REVIEWS_HEADLINE placeholder: e.g. "WHAT OUR CUSTOMERS SAY" -->
-    <!-- Use real Google reviews — copy verbatim, don't paraphrase -->
   </div>
 </section>
 
 
 <!-- ============================================================
      BLOCK 12: FOOTER CTA
-     EDIT: Headline, supporting line, CTA button
      ============================================================ -->
 <section class="footer-cta">
   <div class="container">
 
-    <!-- EDIT: Closing headline — make it action-oriented -->
     <h2>Book your service today</h2>
 
-    <!-- EDIT: Supporting sentence -->
-    <p>Same-day and next-day bookings available. Call us or send a message below.</p>
+    <p>Same-day and next-day bookings available. Use the form above or call us directly.</p>
 
-    <!-- BUTTON: Dark button here for contrast. Change class to btn-primary if client prefers consistent button colour. -->
-    <!-- EDIT: Replace phone number in href and button text. -->
-    <a href="tel:+61XXXXXXXXXX" class="btn-inverted">Call 0X XXXX XXXX</a>
+    <a href="#booking" class="btn-inverted">Book a Service</a>
 
   </div>
 </section>
@@ -642,35 +475,25 @@
 
 <!-- ============================================================
      BLOCK 13: FOOTER
-     EDIT: Workshop name, address, phone, ABN (optional),
-     nav links (Privacy Policy, Terms pages).
      ============================================================ -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-cols">
 
-      <!-- Column 1: Brand -->
       <div class="site-footer__col">
-        <!-- EDIT: Workshop name -->
-        <span class="site-footer__brand">[WORKSHOP NAME]</span>
-        <!-- EDIT: One-line descriptor if useful -->
-        <p>Your trusted local mechanic in [SUBURB].</p>
+        <span class="site-footer__brand">Redline Auto Service</span>
+        <p>Your trusted local mechanic in Penrith, NSW.</p>
       </div>
 
-      <!-- Column 2: Contact details -->
       <div class="site-footer__col">
         <h4>Contact</h4>
-        <!-- EDIT: Replace all contact details -->
-        <a href="tel:+61XXXXXXXXXX">0X XXXX XXXX</a>
-        <p>[Street Address], [SUBURB] [STATE] [POSTCODE]</p>
-        <!-- EDIT: Add or remove the ABN line as required -->
-        <p>ABN: [XX XXX XXX XXX]</p>
+        <a href="tel:+61290000000">(02) 9000 0000</a>
+        <p>123 Great Western Hwy, Penrith NSW 2750</p>
+        <p><a href="mailto:info@redlineauto.com.au">info@redlineauto.com.au</a></p>
       </div>
 
-      <!-- Column 3: Navigation links -->
       <div class="site-footer__col">
         <h4>Links</h4>
-        <!-- EDIT: Update href values when Privacy Policy and Terms pages exist -->
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms.html">Terms &amp; Conditions</a>
       </div>
@@ -678,10 +501,7 @@
     </div>
 
     <div class="site-footer__bottom">
-      <!-- EDIT: Update year and workshop name -->
-      <p class="site-footer__copyright">&copy; 2026 [WORKSHOP NAME]. All rights reserved.</p>
-
-      <!-- POWERED BY: Remove this line if client requests white-label -->
+      <p class="site-footer__copyright">&copy; 2026 Redline Auto Service. All rights reserved.</p>
       <p class="powered-by"><a href="https://mechanicmarketing.com.au">Powered by Mechanic Marketing</a></p>
     </div>
 
@@ -690,6 +510,23 @@
 
 <!-- Main JavaScript -->
 <script src="assets/js/main.js"></script>
+
+<!-- DEMO BOOKING FORM STUB — no real API calls -->
+<script>
+(function () {
+  'use strict';
+  var form = document.getElementById('booking-form');
+  var success = document.getElementById('booking-success');
+  if (!form || !success) return;
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    console.log('Demo form submission — not wired');
+    form.style.display = 'none';
+    success.style.display = 'block';
+  });
+}());
+</script>
 
 </body>
 </html>
