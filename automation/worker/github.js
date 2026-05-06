@@ -37,16 +37,27 @@ export async function commitToGitHub(populatedHTML, formData, env) {
   } else {
     const repoData = await repoCheck.json();
     const defaultBranch = repoData.default_branch || 'main';
-    const refRes = await ghFetch(`/repos/${TEMPLATE_OWNER}/${repoName}/git/ref/heads/${defaultBranch}`, headers);
-    const refData = await refRes.json();
-    mainSha = refData.object.sha;
+    const refRes = await ghFetch(`/repos/${TEMPLATE_OWNER}/${repoName}/git/refs/heads/${defaultBranch}`, headers);
+    if (refRes.status === 404) {
+      // Repo exists but has no commits yet (previous bootstrap may have failed) — re-bootstrap
+      mainSha = await bootstrapRepo(repoName, headers);
+    } else if (refRes.status !== 200) {
+      throw new Error(`GitHub GET ref unexpected status ${refRes.status}`);
+    } else {
+      const refData = await refRes.json();
+      mainSha = refData.object.sha;
+    }
   }
 
-  // 2. Create new branch
-  await ghPost(`/repos/${TEMPLATE_OWNER}/${repoName}/git/refs`, headers, {
+  // 2. Create new branch (422 = already exists from a prior run — that's fine)
+  const createBranchRes = await ghPost(`/repos/${TEMPLATE_OWNER}/${repoName}/git/refs`, headers, {
     ref: `refs/heads/${branchName}`,
     sha: mainSha,
   });
+  if (createBranchRes.status !== 201 && createBranchRes.status !== 422) {
+    const err = await createBranchRes.json();
+    throw new Error(`GitHub create branch failed: ${err.message}`);
+  }
 
   // 3. Commit the populated HTML via Git Data API
   // Create blob
@@ -104,12 +115,14 @@ export async function commitToGitHub(populatedHTML, formData, env) {
     base: 'main',
   });
   const pr = await prRes.json();
+  // 422 = PR already exists for this branch (retry scenario) — fall back to the pulls list URL
+  const prUrl = pr.html_url || `https://github.com/${TEMPLATE_OWNER}/${repoName}/pulls`;
 
   const cfProject = `${env.CF_PAGES_PROJECT_PREFIX}-${clientSlug}`;
   const cfBranchSlug = branchName.replace('/', '-');
   const previewUrl = `https://${cfBranchSlug}.${cfProject}.pages.dev`;
 
-  return { previewUrl, prUrl: pr.html_url };
+  return { previewUrl, prUrl };
 }
 
 async function bootstrapRepo(repoName, headers) {
