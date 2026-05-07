@@ -18,7 +18,7 @@ export async function commitToGitHub(populatedHTML, formData, env) {
   const serviceSlug = toSlug(formData.primaryService);
   const suburbSlug = toSlug(formData.suburb);
   const repoName = `mm-lp-${clientSlug}`;
-  const branchName = `lp/${serviceSlug}-${suburbSlug}`;
+  let branchName = `lp/${clientSlug}/${serviceSlug}-${suburbSlug}`;
   const filePath = `${serviceSlug}-${suburbSlug}.html`;
 
   // 1. Check if client repo exists; create if not
@@ -49,12 +49,20 @@ export async function commitToGitHub(populatedHTML, formData, env) {
     }
   }
 
-  // 2. Create new branch (422 = already exists from a prior run — that's fine)
-  const createBranchRes = await ghPost(`/repos/${TEMPLATE_OWNER}/${repoName}/git/refs`, headers, {
+  // 2. Create new branch — if it already exists, append today's date and retry once
+  let createBranchRes = await ghPost(`/repos/${TEMPLATE_OWNER}/${repoName}/git/refs`, headers, {
     ref: `refs/heads/${branchName}`,
     sha: mainSha,
   });
-  if (createBranchRes.status !== 201 && createBranchRes.status !== 422) {
+  if (createBranchRes.status === 422) {
+    const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+    branchName = `${branchName}-${today}`;
+    createBranchRes = await ghPost(`/repos/${TEMPLATE_OWNER}/${repoName}/git/refs`, headers, {
+      ref: `refs/heads/${branchName}`,
+      sha: mainSha,
+    });
+  }
+  if (!createBranchRes.ok) {
     const err = await createBranchRes.json();
     throw new Error(`GitHub create branch failed: ${err.message}`);
   }
@@ -86,8 +94,8 @@ export async function commitToGitHub(populatedHTML, formData, env) {
   });
   const commit = await commitRes.json();
 
-  // Update branch ref
-  await fetch(`${GITHUB_API}/repos/${TEMPLATE_OWNER}/${repoName}/git/refs/heads/${encodeURIComponent(branchName)}`, {
+  // Update branch ref (branch name may contain slashes — do NOT encodeURIComponent)
+  await fetch(`${GITHUB_API}/repos/${TEMPLATE_OWNER}/${repoName}/git/refs/heads/${branchName}`, {
     method: 'PATCH',
     headers,
     body: JSON.stringify({ sha: commit.sha }),
@@ -119,7 +127,7 @@ export async function commitToGitHub(populatedHTML, formData, env) {
   const prUrl = pr.html_url || `https://github.com/${TEMPLATE_OWNER}/${repoName}/pulls`;
 
   const cfProject = `${env.CF_PAGES_PROJECT_PREFIX}-${clientSlug}`;
-  const cfBranchSlug = branchName.replace('/', '-');
+  const cfBranchSlug = branchName.replace(/\//g, '-'); // replace all slashes for CF Pages subdomain
   const previewUrl = `https://${cfBranchSlug}.${cfProject}.pages.dev`;
 
   return { previewUrl, prUrl };
