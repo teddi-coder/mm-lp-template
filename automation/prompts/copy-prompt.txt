@@ -167,6 +167,29 @@ Under 60 characters. Include primary keyword naturally.
 **17. META DESCRIPTION**
 1–2 sentences. Include primary service, suburb, and a trust hook. Under 155 characters.
 
+**18. CHECKLIST**
+Write 4–6 short tick-list points (max 8 words each) that answer "Why choose [WORKSHOP_NAME]?".
+Focus on trust, quality, and convenience. Be specific to the workshop's niche and selling points provided above.
+Each point on its own line. No bullet characters — the template adds them.
+
+**19. HOW_IT_WORKS**
+Write exactly 3 steps that describe the booking to service to outcome process for [WORKSHOP_NAME].
+Format: one short headline (4–6 words) followed by one sentence of explanation.
+Step 1 = booking/enquiry. Step 2 = drop-off/inspection. Step 3 = outcome/pick-up.
+Separate each step with a blank line. Do NOT number the steps.
+
+**20. REVIEWS**
+Write 3 realistic customer review quotes for [WORKSHOP_NAME].
+Each review: 1–2 sentences, written in first person, specific to the primary service and suburb.
+Follow each quote with: a fictional but plausible first name and suburb (e.g. "Sarah M., Mirrabooka").
+Star rating for all three: 5 stars.
+Separate each review with a blank line.
+
+**21. ABOUT_PARAGRAPH**
+Write 2–3 sentences introducing [WORKSHOP_NAME] to a first-time visitor.
+Mention: location, years in business (if provided), primary niche/speciality, and a trust signal.
+Tone: warm, direct, local. Do NOT start with "Welcome to".
+
 ---
 
 After writing all sections, add a short note flagging anything in the brief that was vague, missing, or where you've made an assumption. Label it "COPY NOTES."

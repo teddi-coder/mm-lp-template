@@ -24,49 +24,14 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- ============================================================
-       GA4 — EDIT: Same measurement ID as index.html
-       ============================================================ -->
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <!-- GA4 — auto-injected by MM pipeline -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{GA4_MEASUREMENT_ID}}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID');
-  </script>
-
-  <!-- ====================================================
-       GA4 CONVERSION EVENT
-       Replace GA_MEASUREMENT_ID with the client's GA4 Measurement ID
-       (found in GA4 → Admin → Data Streams → Web stream details)
-
-       This fires a 'generate_lead' event on page load, which GA4
-       records as a conversion if you've marked it as one in GA4.
-       ==================================================== -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    // gtag('event', 'generate_lead', { 'send_to': 'GA_MEASUREMENT_ID' });
-    // Uncomment the line above and replace GA_MEASUREMENT_ID before going live
-  </script>
-
-  <!-- ====================================================
-       GOOGLE ADS CONVERSION TAG
-       Replace CONVERSION_ID and CONVERSION_LABEL with values from:
-       Google Ads → Tools & Settings → Measurement → Conversions
-       → [conversion action] → Tag setup → Use Google Tag Manager
-
-       This tag is required for Google Ads to report form submission
-       conversions. Without it, campaigns will show zero conversions
-       even when leads are coming in. Test with Google Tag Assistant
-       before going live.
-       ==================================================== -->
-  <script>
-    // gtag('event', 'conversion', {
-    //   'send_to': 'CONVERSION_ID/CONVERSION_LABEL'
-    // });
-    // Uncomment and fill in values before going live
+    gtag('config', '{{GA4_MEASUREMENT_ID}}');
+    gtag('event', 'conversion', { 'send_to': '{{GA4_MEASUREMENT_ID}}/{{GADS_CONVERSION_LABEL}}' });
   </script>
 </head>
 
