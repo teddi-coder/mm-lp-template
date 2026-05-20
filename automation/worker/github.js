@@ -4,7 +4,7 @@ const GITHUB_API = 'https://api.github.com';
 const TEMPLATE_OWNER = 'teddi-coder';
 const TEMPLATE_REPO = 'mm-lp-template';
 
-export async function commitToGitHub(populatedHTML, formData, env) {
+export async function commitToGitHub({ indexHtml, thankYouHtml }, formData, env) {
   const token = env.GITHUB_TOKEN;
   const headers = {
     'Authorization': `Bearer ${token}`,
@@ -67,22 +67,32 @@ export async function commitToGitHub(populatedHTML, formData, env) {
     throw new Error(`GitHub create branch failed: ${err.message}`);
   }
 
-  // 3. Commit the populated HTML via Git Data API
-  // Create blob
-  const blobRes = await ghPost(`/repos/${TEMPLATE_OWNER}/${repoName}/git/blobs`, headers, {
-    content: btoa(unescape(encodeURIComponent(populatedHTML))),
-    encoding: 'base64',
-  });
-  const blob = await blobRes.json();
+  // 3. Commit the populated HTML files via Git Data API
+  // Create blobs for index HTML and thank-you HTML
+  const [indexBlobRes, tyBlobRes] = await Promise.all([
+    ghPost(`/repos/${TEMPLATE_OWNER}/${repoName}/git/blobs`, headers, {
+      content: btoa(unescape(encodeURIComponent(indexHtml))),
+      encoding: 'base64',
+    }),
+    ghPost(`/repos/${TEMPLATE_OWNER}/${repoName}/git/blobs`, headers, {
+      content: btoa(unescape(encodeURIComponent(thankYouHtml))),
+      encoding: 'base64',
+    }),
+  ]);
+  const [indexBlob, tyBlob] = await Promise.all([indexBlobRes.json(), tyBlobRes.json()]);
 
   // Get base tree
   const baseCommitRes = await ghFetch(`/repos/${TEMPLATE_OWNER}/${repoName}/git/commits/${mainSha}`, headers);
   const baseCommit = await baseCommitRes.json();
 
-  // Create tree
+  // Create tree with both files
+  const tyFilePath = `${serviceSlug}-${suburbSlug}-thank-you.html`;
   const treeRes = await ghPost(`/repos/${TEMPLATE_OWNER}/${repoName}/git/trees`, headers, {
     base_tree: baseCommit.tree.sha,
-    tree: [{ path: filePath, mode: '100644', type: 'blob', sha: blob.sha }],
+    tree: [
+      { path: filePath, mode: '100644', type: 'blob', sha: indexBlob.sha },
+      { path: tyFilePath, mode: '100644', type: 'blob', sha: tyBlob.sha },
+    ],
   });
   const tree = await treeRes.json();
 

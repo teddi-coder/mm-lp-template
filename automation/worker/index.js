@@ -87,10 +87,10 @@ export default {
         const structuredCopy = await generateCopy(formData, env);
 
         stepName = 'build-page';
-        const populatedHTML = await buildPage(structuredCopy, formData, env);
+        const { indexHtml, thankYouHtml } = await buildPage(structuredCopy, formData, env);
 
         stepName = 'commit-to-github';
-        const { previewUrl, prUrl } = await commitToGitHub(populatedHTML, formData, env);
+        const { previewUrl, prUrl } = await commitToGitHub({ indexHtml, thankYouHtml }, formData, env);
 
         stepName = 'notify-slack';
         await notifySlack({

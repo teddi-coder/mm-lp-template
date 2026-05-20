@@ -66,7 +66,7 @@
          and shows the text fallback automatically. -->
     <div class="header-logo-wrap">
       <img src="assets/images/[clientslug]/logo.png"
-           alt="[WORKSHOP NAME]"
+           alt="{{LOGO_ALT}}"
            class="header-logo"
            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
       <span class="logo-text" style="display:none;">[WORKSHOP NAME]</span>
@@ -156,7 +156,7 @@
            brand primary colour shows as a fallback background. -->
       <img
         src="assets/images/[clientslug]/hero.jpg"
-        alt="[WORKSHOP NAME] — [PRIMARY SERVICE] in [SUBURB]"
+        alt="{{HERO_IMAGE_ALT}}"
         width="600"
         height="480"
         loading="eager"
@@ -288,18 +288,7 @@
 <section class="service-checklist" aria-labelledby="checklist-heading">
   <div class="container">
     <h2 id="checklist-heading">[CHECKLIST_HEADLINE]</h2>
-    <ul class="checklist-grid">
-      <li>Factory-specified oil and filter</li>
-      <li>Tyre pressure and tread depth check</li>
-      <li>Brake inspection (pads, rotors, fluid)</li>
-      <li>Battery test and terminal check</li>
-      <li>All fluid levels topped up</li>
-      <li>Air and cabin filter inspection</li>
-      <li>Lights, wipers, and horn check</li>
-      <li>Digital service record updated</li>
-      <li>Logbook stamped (new car warranty maintained)</li>
-      <li>Road test and safety report</li>
-    </ul>
+    {{CHECKLIST_ITEMS}}
     <!-- CHECKLIST_HEADLINE placeholder: e.g. "WHAT'S INCLUDED IN EVERY SERVICE" -->
   </div>
 </section>
@@ -347,25 +336,7 @@
 <section class="how-it-works" aria-labelledby="how-heading">
   <div class="container">
     <h2 id="how-heading">[HOW_IT_WORKS_HEADLINE]</h2>
-    <div class="how-steps">
-      <div class="how-step">
-        <span class="how-step__number">1</span>
-        <h3>[STEP_1_LABEL]</h3>
-        <p>[STEP_1_DESCRIPTION]</p>
-      </div>
-      <div class="how-step__connector" aria-hidden="true">→</div>
-      <div class="how-step">
-        <span class="how-step__number">2</span>
-        <h3>[STEP_2_LABEL]</h3>
-        <p>[STEP_2_DESCRIPTION]</p>
-      </div>
-      <div class="how-step__connector" aria-hidden="true">→</div>
-      <div class="how-step">
-        <span class="how-step__number">3</span>
-        <h3>[STEP_3_LABEL]</h3>
-        <p>[STEP_3_DESCRIPTION]</p>
-      </div>
-    </div>
+    {{HOW_IT_WORKS_STEPS}}
     <!-- HOW_IT_WORKS_HEADLINE placeholder: e.g. "BOOKING IS EASY" or "HOW IT WORKS" -->
     <!-- Step labels/descriptions placeholder — example:
          Step 1: "Call or Book Online" / "Call us on [PHONE] or use the form below. Tell us your car and what it needs — we'll confirm a time that suits."
@@ -461,12 +432,7 @@
       <!-- EDIT: About headline — personalise to the workshop and suburb -->
       <h3>About [WORKSHOP NAME]</h3>
 
-      <!-- EDIT: 2–3 paragraphs about the workshop. Keep it specific and local. -->
-      <p>[Opening paragraph — when the workshop was founded, who runs it, how long they&rsquo;ve been serving the local area.]</p>
-
-      <p>[Second paragraph — what the workshop specialises in, the types of vehicles they work on, any key accreditations or memberships.]</p>
-
-      <p>[Optional third paragraph — something personal: the owner&rsquo;s background, a community connection, or a guarantee statement that sets them apart.]</p>
+      {{ABOUT_PARAGRAPH}}
     </div>
 
     <div class="about__image">
@@ -476,7 +442,7 @@
            div empty — it will disappear automatically. -->
       <img
         src="assets/images/[clientslug]/team.jpg"
-        alt="The team at [WORKSHOP NAME] in [SUBURB]"
+        alt="{{TEAM_IMAGE_ALT}}"
         width="540"
         height="360"
         loading="lazy"
@@ -596,23 +562,7 @@
 <section class="reviews" aria-labelledby="reviews-heading">
   <div class="container">
     <h2 id="reviews-heading">[REVIEWS_HEADLINE]</h2>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars" aria-label="5 stars">★★★★★</div>
-        <blockquote class="review-text">"[REVIEW_TEXT_1]"</blockquote>
-        <cite class="review-author">[REVIEWER_NAME_1]</cite>
-      </div>
-      <div class="review-card">
-        <div class="review-stars" aria-label="5 stars">★★★★★</div>
-        <blockquote class="review-text">"[REVIEW_TEXT_2]"</blockquote>
-        <cite class="review-author">[REVIEWER_NAME_2]</cite>
-      </div>
-      <div class="review-card">
-        <div class="review-stars" aria-label="5 stars">★★★★★</div>
-        <blockquote class="review-text">"[REVIEW_TEXT_3]"</blockquote>
-        <cite class="review-author">[REVIEWER_NAME_3]</cite>
-      </div>
-    </div>
+    {{REVIEWS_BLOCK}}
     <!-- REVIEWS_HEADLINE placeholder: e.g. "WHAT OUR CUSTOMERS SAY" -->
     <!-- Use real Google reviews — copy verbatim, don't paraphrase -->
   </div>

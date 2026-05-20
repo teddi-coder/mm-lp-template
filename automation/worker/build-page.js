@@ -90,6 +90,52 @@ export async function buildPage(copy, formData, env) {
     (match, open, _inner, close) => `${open}\n${serviceCards}\n  ${close}`
   );
 
+  // ── SERVICE CHECKLIST ─────────────────────────────────────────────
+  html = replaceAll(html, '[CHECKLIST_HEADLINE]', copy.checklistHeadline || '');
+  // Build checklist <li> items from the raw CHECKLIST block (one item per line)
+  const checklistLines = (copy.CHECKLIST || '').split('\n').map(l => l.trim()).filter(Boolean);
+  const checklistHtml = checklistLines.length
+    ? `<ul class="checklist-grid">\n${checklistLines.map(l => `      <li>${l}</li>`).join('\n')}\n    </ul>`
+    : '';
+  html = replaceAll(html, '{{CHECKLIST_ITEMS}}', checklistHtml);
+
+  // ── BENEFIT CARDS ─────────────────────────────────────────────────
+  html = replaceAll(html, '[BENEFITS_HEADLINE]', copy.benefitsHeadline || '');
+  if (copy.benefitCards && copy.benefitCards.length) {
+    const benefitCardsHtml = copy.benefitCards.map(card => `
+      <div class="benefit-card">
+        <h4>${card.name}</h4>
+        <p>${card.description}</p>
+      </div>`).join('\n');
+    html = html.replace(
+      /(<div class="benefits-grid[^>]*>)([\s\S]*?)(<\/div>\s*\n\s*<!-- Add or remove)/,
+      (match, open, _inner, close) => `${open}\n${benefitCardsHtml}\n  ${close}`
+    );
+  }
+
+  // ── HOW IT WORKS ──────────────────────────────────────────────────
+  html = replaceAll(html, '[HOW_IT_WORKS_HEADLINE]', copy.howItWorksHeadline || '');
+  // Build 3-step HTML from the raw HOW_IT_WORKS block
+  // Format per step: "Headline\nOne sentence explanation" separated by blank lines
+  const howBlocks = (copy.HOW_IT_WORKS || '').split(/\n\s*\n/).map(b => b.trim()).filter(Boolean);
+  let howHtml = '';
+  if (howBlocks.length >= 3) {
+    const steps = howBlocks.slice(0, 3).map((block, i) => {
+      const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
+      const label = lines[0] || `Step ${i + 1}`;
+      const desc = lines.slice(1).join(' ') || '';
+      return `      <div class="how-step">
+        <span class="how-step__number">${i + 1}</span>
+        <h3>${label}</h3>
+        <p>${desc}</p>
+      </div>`;
+    });
+    howHtml = steps[0] + '\n      <div class="how-step__connector" aria-hidden="true">→</div>\n' +
+              steps[1] + '\n      <div class="how-step__connector" aria-hidden="true">→</div>\n' +
+              steps[2];
+  }
+  html = replaceAll(html, '{{HOW_IT_WORKS_STEPS}}', howHtml);
+
   // ── WHY CHOOSE US ─────────────────────────────────────────────────
   html = replaceAll(html, '[WHY_US_HEADLINE]', copy.whyUsHeadline);
   const whyUsItems = copy.whyUs.map(item => `
@@ -108,7 +154,7 @@ export async function buildPage(copy, formData, env) {
 
   // ── ABOUT ─────────────────────────────────────────────────────────
   html = replaceAll(html, '[ABOUT_HEADLINE]', `${formData.workshopName} — ${formData.suburb}`);
-  html = replaceAll(html, '[ABOUT_PARAGRAPH]', '[Add about copy here — describe the workshop, team, and local presence. 2–3 sentences.]');
+  html = replaceAll(html, '{{ABOUT_PARAGRAPH}}', copy.ABOUT_PARAGRAPH || '');
   html = replaceAll(html, '[clientslug]/team.jpg', `assets/images/${clientSlug}/team.jpg`);
 
   // ── FAQ ───────────────────────────────────────────────────────────
@@ -130,11 +176,58 @@ export async function buildPage(copy, formData, env) {
   html = replaceAll(html, '[GOOGLE_MAPS_LINK]', formData.mapsLink || '#');
   html = replaceAll(html, '[ADDRESS]', formData.address);
 
+  // ── REVIEWS ───────────────────────────────────────────────────────
+  html = replaceAll(html, '[REVIEWS_HEADLINE]', copy.reviewsHeadline || '');
+  // Build review cards from the raw REVIEWS block
+  // Format per review: quote text, then "Name, Suburb" on next line, separated by blank lines
+  const reviewBlocks = (copy.REVIEWS || '').split(/\n\s*\n/).map(b => b.trim()).filter(Boolean);
+  let reviewsHtml = '';
+  if (reviewBlocks.length >= 3) {
+    reviewsHtml = '<div class="reviews-grid">\n' + reviewBlocks.slice(0, 3).map(block => {
+      const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
+      const quoteText = lines[0] ? lines[0].replace(/^[""]|[""]$/g, '').trim() : '';
+      const author = lines[1] || '';
+      return `      <div class="review-card">
+        <div class="review-stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="review-text">"${quoteText}"</blockquote>
+        <cite class="review-author">${author}</cite>
+      </div>`;
+    }).join('\n') + '\n    </div>';
+  }
+  html = replaceAll(html, '{{REVIEWS_BLOCK}}', reviewsHtml);
+
+  // ── IMAGE ALT TEXT DEFAULTS ───────────────────────────────────────
+  html = replaceAll(html, '{{LOGO_ALT}}', `${formData.workshopName} logo`);
+  html = replaceAll(html, '{{HERO_IMAGE_ALT}}', `${formData.workshopName} — ${formData.primaryService || 'mechanic workshop'}`);
+  html = replaceAll(html, '{{TEAM_IMAGE_ALT}}', `The team at ${formData.workshopName}`);
+
   // ── FOOTER CTA ────────────────────────────────────────────────────
   html = replaceAll(html, '[FOOTER_CTA_HEADLINE]', copy.footerCta.headline);
   html = replaceAll(html, '[FOOTER_CTA_SUPPORTING]', copy.footerCta.supporting);
 
-  return html;
+  // ── THANK-YOU PAGE ────────────────────────────────────────────────
+  const tyUrl = 'https://raw.githubusercontent.com/teddi-coder/mm-lp-template/main/thank-you.html';
+  const tyResponse = await fetch(tyUrl);
+  if (!tyResponse.ok) throw new Error(`Failed to fetch thank-you template: ${tyResponse.status}`);
+  let tyHtml = await tyResponse.text();
+
+  // Apply the same brand CSS injection
+  tyHtml = tyHtml.replace(':root {', `:root {\n${cssVars}`);
+
+  // Apply shared replacements
+  tyHtml = replaceAll(tyHtml, '[WORKSHOP NAME]', formData.workshopName);
+  tyHtml = replaceAll(tyHtml, 'tel:+61XXXXXXXXXX', `tel:${formData.phoneE164}`);
+  tyHtml = replaceAll(tyHtml, '+61XXXXXXXXXX', formData.phoneE164);
+  tyHtml = replaceAll(tyHtml, '[PHONE NUMBER]', formData.phoneDisplay);
+  tyHtml = replaceAll(tyHtml, '[PHONE]', formData.phoneDisplay);
+  tyHtml = replaceAll(tyHtml, '[SUBURB]', formData.suburb);
+  tyHtml = replaceAll(tyHtml, '[ADDRESS]', formData.address);
+
+  // GA4 + GAdS conversion tags
+  tyHtml = replaceAll(tyHtml, '{{GA4_MEASUREMENT_ID}}', formData.ga4MeasurementId || 'GA_MEASUREMENT_ID');
+  tyHtml = replaceAll(tyHtml, '{{GADS_CONVERSION_LABEL}}', formData.gadsConversionLabel || '');
+
+  return { indexHtml: html, thankYouHtml: tyHtml };
 }
 
 function replaceAll(str, find, replace) {
