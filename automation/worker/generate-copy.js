@@ -2,7 +2,7 @@
 // If you update prompts/copy-prompt.txt, copy the content here too
 import COPY_PROMPT from '../prompts/copy-prompt.txt';
 
-export async function generateCopy(formData, env) {
+export async function generateCopy(formData, env, signals = null) {
   const sellingPointsList = (formData.sellingPoints || [])
     .map((pt, i) => `${i + 1}. ${pt}`)
     .join('\n');
@@ -31,7 +31,26 @@ ${sellingPointsList}
 **CTA preference:** ${formData.ctaPreference}
 `.trim();
 
-  const prompt = COPY_PROMPT.replace('## [BRIEF]', `## [BRIEF]\n\n${brief}`);
+  // Build buyer research block if signals were collected
+  let buyerResearchBlock = '';
+  if (signals) {
+    buyerResearchBlock = `
+
+## Buyer Research
+
+Real customer signals have been collected for this client's market. Use this research to ground the copy:
+
+Pain points customers experience: ${signals.painPoints.join(', ')}
+Language customers use: ${signals.voiceOfCustomer.join(', ')}
+Common objections: ${signals.objections.join(', ')}
+Awareness stage of target audience: ${signals.awarenessStage}
+Proven hook angles:
+${signals.topHooks.map(h => `• ${h}`).join('\n')}
+
+Write headlines, body copy, and CTAs that reflect this language and address these pain points directly. Do not use generic automotive marketing language when more specific customer language is available above.`;
+  }
+
+  const prompt = COPY_PROMPT.replace('## [BRIEF]', `## [BRIEF]\n\n${brief}${buyerResearchBlock}`);
 
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',

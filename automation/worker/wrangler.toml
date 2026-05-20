@@ -14,3 +14,6 @@ id = "4254ed917fc245368ae5e57ea279aaf1"
 # wrangler secret put GITHUB_TOKEN
 # wrangler secret put SLACK_WEBHOOK_URL
 # wrangler secret put MM_WEBHOOK_SECRET
+
+# Buyer Signals Research Module (optional — module is skipped if not set)
+# wrangler secret put GOOGLE_PLACES_API_KEY

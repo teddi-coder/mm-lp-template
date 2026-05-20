@@ -3,6 +3,7 @@ import { buildPage } from './build-page.js';
 import { commitToGitHub } from './github.js';
 import { notifySlack } from './notify.js';
 import { saveClientConfig, getClientConfig, listClients, extractStaticConfig } from './client-config.js';
+import { buyerSignals } from './src/research/buyer-signals.js';
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -83,8 +84,22 @@ export default {
           await saveClientConfig(formData.clientSlug, extractStaticConfig(formData), env);
         }
 
+        stepName = 'buyer-signals-research';
+        const signals = await buyerSignals({
+          clientName: formData.workshopName,
+          suburb: formData.suburb,
+          state: formData.state || 'WA',
+          serviceCategory: formData.primaryService,
+          gbpPlaceId: formData.gbpPlaceId || null,
+          competitorPlaceIds: formData.competitorPlaceIds || [],
+          googleAdsCustomerId: formData.googleAdsCustomerId || null,
+        }).catch(err => {
+          console.error('buyerSignals outer catch:', err.message);
+          return null;
+        });
+
         stepName = 'generate-copy';
-        const structuredCopy = await generateCopy(formData, env);
+        const structuredCopy = await generateCopy(formData, env, signals);
 
         stepName = 'build-page';
         const { indexHtml, thankYouHtml } = await buildPage(structuredCopy, formData, env);
