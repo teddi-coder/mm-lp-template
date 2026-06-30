@@ -1,7 +1,7 @@
 import { toSlug } from './index.js';
 
 const GITHUB_API = 'https://api.github.com';
-const TEMPLATE_OWNER = 'teddi-coder';
+const TEMPLATE_OWNER = 'Mechanic-Marketing';
 const TEMPLATE_REPO = 'mm-lp-template';
 
 export async function commitToGitHub({ indexHtml, thankYouHtml }, formData, env) {
