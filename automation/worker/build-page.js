@@ -1,7 +1,7 @@
 import { toSlug } from './index.js';
 
 export async function buildPage(copy, formData, env) {
-  const templateUrl = 'https://raw.githubusercontent.com/teddi-coder/mm-lp-template/main/index.html';
+  const templateUrl = 'https://raw.githubusercontent.com/Mechanic-Marketing/mm-lp-template/main/index.html';
   const response = await fetch(templateUrl);
   if (!response.ok) throw new Error(`Failed to fetch template: ${response.status}`);
   let html = await response.text();
@@ -206,7 +206,7 @@ export async function buildPage(copy, formData, env) {
   html = replaceAll(html, '[FOOTER_CTA_SUPPORTING]', copy.footerCta.supporting);
 
   // ── THANK-YOU PAGE ────────────────────────────────────────────────
-  const tyUrl = 'https://raw.githubusercontent.com/teddi-coder/mm-lp-template/main/thank-you.html';
+  const tyUrl = 'https://raw.githubusercontent.com/Mechanic-Marketing/mm-lp-template/main/thank-you.html';
   const tyResponse = await fetch(tyUrl);
   if (!tyResponse.ok) throw new Error(`Failed to fetch thank-you template: ${tyResponse.status}`);
   let tyHtml = await tyResponse.text();
